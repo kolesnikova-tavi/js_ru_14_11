@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 
 class Comment extends Component {
+	//конструктор здесь лишний. + Этот компонент лучше вообще на Functional Component переписать
 	constructor() {
 		super()
 	}
