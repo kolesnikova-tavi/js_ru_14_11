@@ -17,6 +17,7 @@ class CommentList extends Component {
 		
 		const labelText = this.state.isOpen ? 'Hide comments' : 'Show comments'
 		const commentItems = this.state.isOpen ? comments.map(comment => <li key={comment.id}><Comment comment={comment} /></li>) : null
+		//лучше бы тоже написать this.state.isOpen, а еще лучше срузу достать эту переменную const { isOpen } = this.state
 		const commentList = commentItems ? <ul>{commentItems}</ul> : null
 		
 		return (
