@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 class Comment extends Component {
 	constructor() {
 		super();
-	},
+	}
 	
 	render() {
 		const {comment} = this.props;

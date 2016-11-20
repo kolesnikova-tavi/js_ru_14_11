@@ -7,7 +7,7 @@ class CommentList extends Component {
 		this.state = {
 			isOpen: false
 		};
-	},
+	}
 	
 	render() {
 		const {comments} = this.props;
@@ -19,13 +19,14 @@ class CommentList extends Component {
 			<li key={comment.id}><Comment comment={comment} /></li>
 		);
 		const labelText = this.state.isOpen ? 'Скрыть' : 'Показать';
-		const commentList = this.state.isOpen ? <ul>{commentItems}</ul> :null;
+		const commentBlock = this.state.isOpen ? <ul>{commentItems}</ul> : null;
 		
 		return (
 			<p onClick={this.handleClick}>{labelText}</p>
-			{commentList}
-		);
-	},
+
+			// {commentBlock}
+		)
+	}
 	
 	handleClick(ev) {
 		this.setState({
