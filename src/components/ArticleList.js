@@ -1,4 +1,4 @@
-import React, {Component}  from 'react'
+import React, {Component, PropTypes}  from 'react'
 import Article from './Article'
 import Accordion from '../decorators/accordionOpen'
 
@@ -22,6 +22,12 @@ function ArticleList(props) {
         </ul>
     )
 
+}
+
+ArticleList.propTypes = {
+    articles: PropTypes.arrayOf(PropTypes.object).isRequired,
+    openId: PropTypes.string,
+    toggleOpen: PropTypes.func.isRequired
 }
 
 export default Accordion(ArticleList)
