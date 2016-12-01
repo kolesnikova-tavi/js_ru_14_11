@@ -22,9 +22,10 @@ class Article extends Component {
 
     render() {
         const { article, toggleOpen } = this.props
+        const date = new Date(article.date)
         return (
             <section>
-                <h3 onClick = {toggleOpen}>{article.title}</h3>
+                <h3 onClick = {toggleOpen}><sup>{date.toDateString()}</sup> {article.title}</h3>
                 <a href = "#" onClick = {this.handleDeleteArticle}>delete me</a>
                 {this.getBody()}
             </section>

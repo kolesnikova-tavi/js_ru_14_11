@@ -37,7 +37,7 @@ class ArticleList extends Component {
     render() {
         const { articles, isOpen, toggleOpenItem } = this.props
 
-        const articleItems = articles.map(article => (
+        const articleItems = articles.sort((a, b) => new Date(a.date) - new Date(b.date)).map(article => (
             <li key = {article.id}>
                 <Article
                     article = {article}
