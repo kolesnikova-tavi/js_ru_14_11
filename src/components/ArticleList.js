@@ -66,6 +66,6 @@ export default connect(state => {
             (!from || !to || (published > from && published < to))
     })
     return {
-        articles: filteredArticles
+        articles: filteredArticles.toArray()
     }
 })(accordion(ArticleList))
