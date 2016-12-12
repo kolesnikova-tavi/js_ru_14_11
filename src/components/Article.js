@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import { findDOMNode } from 'react-dom'
 import CommentList from './CommentList'
-import { deleteArticle } from '../AC/articles'
+import Loader from './Loader'
+import { deleteArticle, loadArticle } from '../AC/articles'
 import { connect } from 'react-redux'
 
 class Article extends Component {
@@ -13,11 +14,13 @@ class Article extends Component {
 */
 
     componentWillUpdate() {
-        console.log('---', 'updating Article')
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.isOpen && !this.props.isOpen && !nextProps.article.text) this.props.loadArticle(this.props.article.id)
     }
 
     componentDidUpdate() {
-        console.log('---', findDOMNode(this.refs.comments))
     }
 
     render() {
@@ -35,10 +38,11 @@ class Article extends Component {
     getBody() {
         const { article, isOpen } = this.props
         if (!isOpen) return null
+        if (article.loading) return <Loader />
         return (
             <div>
                 <p>{article.text}</p>
-                <CommentList commentIds = {article.comments} ref = "comments" />
+                <CommentList article = {article} ref = "comments" />
             </div>
         )
     }
@@ -62,5 +66,5 @@ Article.propTypes = {
 
 
 export default connect(null, {
-    deleteArticle
+    deleteArticle, loadArticle
 })(Article)
