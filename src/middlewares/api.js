@@ -9,12 +9,12 @@ export default store => next => action => {
 
     //NOT FOR PROD! just to simulate long call
     setTimeout(() => {
-        jquery.get(callAPI)
+        jquery.get(callAPI, action.payload || {})
             .done(response => {
                 next({...rest, response, type: type + SUCCESS})
             })
             .fail(error => {
                 next({...rest, error, type: type + FAIL})
             })
-    }, 1000)
+    }, 2000)
 }
