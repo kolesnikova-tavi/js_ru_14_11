@@ -15,6 +15,7 @@ class Root extends Component {
                 <div>
                     <Menu>
                         <MenuItem link = "/articles" name="Articles index"/>
+                        <MenuItem link = "/comments" name="Comments index"/>
                         <MenuItem link = "/filters" name="Filters"/>
                         <MenuItem link = "/counter" name="Counter"/>
                     </Menu>

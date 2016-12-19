@@ -2,9 +2,11 @@ import React from 'react'
 import { Router, Route, browserHistory } from 'react-router'
 import Root from './RouteHandlers/Root'
 import ArticleRoot from './RouteHandlers/ArticleRoot'
+import CommentRoot from './RouteHandlers/CommentRoot'
 import Filters from './RouteHandlers/Filters'
 import Counter from './RouteHandlers/Counter'
 import ArticlePage from './RouteHandlers/ArticlePage'
+import CommentPage from './RouteHandlers/CommentPage'
 import NotFound from './RouteHandlers/NotFound'
 
 export default (
@@ -13,6 +15,9 @@ export default (
             <Route path = "/counter" component={Counter} />
             <Route path = "/articles" component={ArticleRoot}>
                 <Route path = ":id" component={ArticlePage} />
+            </Route>
+            <Route path="/comments" component={CommentRoot}>
+                <Route path=":num" component={CommentPage} />
             </Route>
             <Route path = "/filters" component={Filters} />
             <Route path = "*" component={NotFound} />
