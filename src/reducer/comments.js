@@ -28,7 +28,7 @@ export default (commentsState = defaultState, action) => {
 
         case LOAD_ALL_COMMENTS + SUCCESS:
             return commentsState
-                .set('entities', arrayToMap(response, CommentModel))
+                .mergeIn(['entities'], arrayToMap(response, CommentModel))
                 .set('loading', false)
     }
 

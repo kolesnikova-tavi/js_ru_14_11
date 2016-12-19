@@ -23,8 +23,9 @@ class CommentList extends Component {
 
     componentWillReceiveProps(nextProps) {
         //console.log('---', 'CL receiving props')
-        if (this.props.article.commentsLoaded === false && this.props.article.commentsLoading === false) {
-            if (nextProps.isOpen && !this.props.isOpen) this.props.loadAllComments(this.props.article.id)
+        const {isOpen, article, loadAllComments} = nextProps
+        if (article.commentsLoaded === false && article.commentsLoading === false) {
+            if (isOpen && !this.props.isOpen) loadAllComments(article.id)
         }
     }
 
